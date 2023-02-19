@@ -1,0 +1,26 @@
+<table border="1px solid black">
+    <tr>
+        <th>StockId</th>
+        <th>StockName</th>
+        <th>StockIndustry</th>
+        <th>StockPurchasePrice</th>
+        <th>StockCurrentPrice</th>
+        <th>StockQty</th>
+        <th>InvestmentValue</th>
+        <th>CurrentValue</th>
+        <th>Status</th>
+        <th>Recommendation</th>
+    </tr>
+    <tr *ngFor="let stock of stockDetails">
+        <td> {{ stock.stockId }}</td>
+        <td> {{ stock.stockName }}</td>
+        <td> {{ stock.stockIndustry }}</td>
+        <td> {{ stock.stockPurchasePrice }}</td>
+        <td> {{ stock.stockCurrentPrice }}</td>
+        <td> {{ stock.stockQty }}</td>
+        <td> {{ stock.stockQty | investmentval: stock.stockPurchasePrice  }}</td>
+        <td> {{ stock.stockQty | currentval: stock.stockCurrentPrice }}</td>
+        <td> {{ stock.stockQty | status: stock.stockPurchasePrice:stock.stockCurrentPrice  }}</td>
+        <td> {{ '' | recommendation: stock.stockPurchasePrice:stock.stockCurrentPrice  }}</td>
+    </tr>
+</table>
